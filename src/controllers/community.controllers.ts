@@ -53,13 +53,11 @@ export const getAllCommunityController = async (
             include: [
                 {
                     model: UserModel,
-                    as: 'owner',
                     attributes: ['id', 'name'],
-                    required: true,
                 }
             ],
             limit,
-            offset: skip
+            offset: skip,
         });
 
         res.status(200).json({

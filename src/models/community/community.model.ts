@@ -35,7 +35,7 @@ const CommunityModel = sequelize.define("Community", {
             key: 'id',
         },
         allowNull: false,
-    }
+    },
 }, {
     timestamps: true,
     createdAt: 'created_at',
@@ -46,6 +46,10 @@ const CommunityModel = sequelize.define("Community", {
             community.id = Snowflake.generate();
         }
     },
+});
+
+CommunityModel.belongsTo(UserModel, {
+    foreignKey: 'owner',
 });
 
 export default CommunityModel;
